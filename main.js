@@ -114,10 +114,10 @@ var jAlbumController = (function () {
 	/** skin inizialisation settings **/
 	if(currentPath == "") $jAlbum(".leaveFolder").hide(); // hide the go back button if page loaded in root folder without hash directory
 
-	if(!jAlbumGlobals1649782348930.credits) $jAlbum('#jAlbum-footer .center').hide(); // hide credits in footer if disabled
+	if(!jAlbumGlobals1649783349357.credits) $jAlbum('#jAlbum-footer .center').hide(); // hide credits in footer if disabled
 
 	/** go back also on background click possible **/
-	$jAlbum("#Responsive" + jAlbumGlobals1649782348930.uniqueId + ", .jAlbum #jAlbum-footer, .jAlbum #jAlbum-footer .center, .jAlbum #jAlbum-footer .left, .jAlbum #jAlbum-footer p, .jAlbum #jAlbum-content, .jAlbum #print").click(function(event) {
+	$jAlbum("#Responsive" + jAlbumGlobals1649783349357.uniqueId + ", .jAlbum #jAlbum-footer, .jAlbum #jAlbum-footer .center, .jAlbum #jAlbum-footer .left, .jAlbum #jAlbum-footer p, .jAlbum #jAlbum-content, .jAlbum #print").click(function(event) {
 		if(event.target == event.currentTarget){
 			back();
 		}
@@ -125,7 +125,7 @@ var jAlbumController = (function () {
 
 	/** helper functions to get and set different values **/
 	function getWidth(){
-		return $jAlbum("#Responsive" + jAlbumGlobals1649782348930.uniqueId).width();
+		return $jAlbum("#Responsive" + jAlbumGlobals1649783349357.uniqueId).width();
 	}
 
 	function getHeight(){
@@ -133,26 +133,26 @@ var jAlbumController = (function () {
 	}
 
 	function getMaxLetterParam(){
-		return (jAlbumGlobals1649782348930.imgBoxSize / 25) * 3 + (16 - jAlbumGlobals1649782348930.textSize) * 2 - 8;
+		return (jAlbumGlobals1649783349357.imgBoxSize / 25) * 3 + (16 - jAlbumGlobals1649783349357.textSize) * 2 - 8;
 	}
 
 	function getImgBoxPadding(){
-		return jAlbumGlobals1649782348930.mobile ? 15 : 25;
+		return jAlbumGlobals1649783349357.mobile ? 15 : 25;
 	}
 
 	function getBoxSize(){
-		return jAlbumGlobals1649782348930.mobile ? jAlbumGlobals1649782348930.imgBoxSize - 25 : jAlbumGlobals1649782348930.imgBoxSize;
+		return jAlbumGlobals1649783349357.mobile ? jAlbumGlobals1649783349357.imgBoxSize - 25 : jAlbumGlobals1649783349357.imgBoxSize;
 	}
 
 	function getNumImgsInRow(innerWidth){
 	    var number = Math.round((innerWidth)/BOX_SIZE);
-	    return (number < 1) ? 1 : (number > jAlbumGlobals1649782348930.maxImgInRow) ? jAlbumGlobals1649782348930.maxImgInRow : number;
+	    return (number < 1) ? 1 : (number > jAlbumGlobals1649783349357.maxImgInRow) ? jAlbumGlobals1649783349357.maxImgInRow : number;
 	}
 
 	function setHashPathAndSlide(currentSlide){
 		var tempSlide = currentSlide == undefined ? "" : currentSlide;
 		// clear the hash but only if online, else without since chrome doesnt handle offline pushState events
-		if(currentPath == "" && jAlbumGlobals1649782348930.online) history.pushState('', document.title, window.location.pathname);
+		if(currentPath == "" && jAlbumGlobals1649783349357.online) history.pushState('', document.title, window.location.pathname);
 		jAlbumLibrary.setHash(currentPath + tempSlide);
 	}
 
@@ -164,7 +164,7 @@ var jAlbumController = (function () {
 	/** preloading all slides in current folder **/
 	function preloadCurrSlides(){
 		for(var i = 0; i < slides.length; i++){
-			preloadImage(jAlbumGlobals1649782348930.jAlbumURL + currentPath + slides[i].path);
+			preloadImage(jAlbumGlobals1649783349357.jAlbumURL + currentPath + slides[i].path);
 		}
 	}
 
@@ -176,7 +176,7 @@ var jAlbumController = (function () {
 
 		for(var i = start; i < end; i++){
 			if (slides[i].category == 'image') {
-				jAlbumLibrary.preloadImg(jAlbumGlobals1649782348930.jAlbumURL + currentPath + slides[i].path);
+				jAlbumLibrary.preloadImg(jAlbumGlobals1649783349357.jAlbumURL + currentPath + slides[i].path);
 			}
 		}
 	}
@@ -231,7 +231,7 @@ var jAlbumController = (function () {
 	}
 
 	function getAlbumData(path){
-		var obj = jAlbumGlobals1649782348930.dataTree; // jAlbum dataTree
+		var obj = jAlbumGlobals1649783349357.dataTree; // jAlbum dataTree
 		return getAlbumDataHelper(obj , path); // call recursive helper function
 	}
 
@@ -391,7 +391,7 @@ var jAlbumController = (function () {
 			topBottomPadding = embedWidth * 0.025;
 			minHeight = embedHeight - (topBottomPadding * 2); 
 
-			$jAlbum("#Responsive" + jAlbumGlobals1649782348930.uniqueId + " #jAlbum-content").css("padding", '' + topBottomPadding + 'px 2.5%');
+			$jAlbum("#Responsive" + jAlbumGlobals1649783349357.uniqueId + " #jAlbum-content").css("padding", '' + topBottomPadding + 'px 2.5%');
 
 			// real calculation
 			innerWidth = embedWidth - embedWidth * 0.05 - 0.5;
@@ -460,7 +460,7 @@ var jAlbumController = (function () {
 						var imgPath = currentPath + json.path + "/" + object.thumb.path;
 
 						// get div container with special given image folder id 
-						var img = jAlbumLibrary.img("img-folder-" + numOfImg + "-" + index, jAlbumGlobals1649782348930.jAlbumURL + imgPath);
+						var img = jAlbumLibrary.img("img-folder-" + numOfImg + "-" + index, jAlbumGlobals1649783349357.jAlbumURL + imgPath);
 
 						// add classes to folder thumbnail images to inject with certain behavior
 						img.addClass("shadow");
@@ -477,13 +477,13 @@ var jAlbumController = (function () {
 						});
 
 						// regulate hover event on folders with given scale factor
-						if(!jAlbumGlobals1649782348930.mobile){
+						if(!jAlbumGlobals1649783349357.mobile){
 						    img.hover(function(){
 						    	mainBox.css({
-						    		"-webkit-transform": jAlbumGlobals1649782348930.imgHoverScaleFactor,
-							    	"-moz-transform": jAlbumGlobals1649782348930.imgHoverScaleFactor,
-							    	"-o-transform": jAlbumGlobals1649782348930.imgHoverScaleFactor,
-							    	"transform": jAlbumGlobals1649782348930.imgHoverScaleFactor
+						    		"-webkit-transform": jAlbumGlobals1649783349357.imgHoverScaleFactor,
+							    	"-moz-transform": jAlbumGlobals1649783349357.imgHoverScaleFactor,
+							    	"-o-transform": jAlbumGlobals1649783349357.imgHoverScaleFactor,
+							    	"transform": jAlbumGlobals1649783349357.imgHoverScaleFactor
 						    	});
 							}, function(){
 								mainBox.css({
@@ -510,11 +510,11 @@ var jAlbumController = (function () {
 			var img = $jAlbum("<img>");
 
 			// empty folder thumbnail path
-		    img.attr("src", jAlbumGlobals1649782348930.jAlbumURL + "res/img/folder.png");
+		    img.attr("src", jAlbumGlobals1649783349357.jAlbumURL + "res/img/folder.png");
 		    img.css("position", "absolute");
 
 			// add style
-			if(jAlbumGlobals1649782348930.showFolderName){
+			if(jAlbumGlobals1649783349357.showFolderName){
 				img.css("width", "60%");
 				img.css("margin", "20%");
 			}else{
@@ -536,13 +536,13 @@ var jAlbumController = (function () {
 			});
 
 			// regulate hover event on folders with given scale factor
-			if(!jAlbumGlobals1649782348930.mobile){
+			if(!jAlbumGlobals1649783349357.mobile){
 			    img.hover(function(){
 			    	mainBox.css({
-			    		"-webkit-transform": jAlbumGlobals1649782348930.imgHoverScaleFactor,
-				    	"-moz-transform": jAlbumGlobals1649782348930.imgHoverScaleFactor,
-				    	"-o-transform": jAlbumGlobals1649782348930.imgHoverScaleFactor,
-				    	"transform": jAlbumGlobals1649782348930.imgHoverScaleFactor
+			    		"-webkit-transform": jAlbumGlobals1649783349357.imgHoverScaleFactor,
+				    	"-moz-transform": jAlbumGlobals1649783349357.imgHoverScaleFactor,
+				    	"-o-transform": jAlbumGlobals1649783349357.imgHoverScaleFactor,
+				    	"transform": jAlbumGlobals1649783349357.imgHoverScaleFactor
 			    	});
 				}, function(){
 					mainBox.css({
@@ -559,14 +559,14 @@ var jAlbumController = (function () {
 		}
 
 		// add fodler name in main box
-		if(jAlbumGlobals1649782348930.showFolderName){
+		if(jAlbumGlobals1649783349357.showFolderName){
 			textBox.addClass("folderTitle");
 
 			var maxLetters = getMaxLetterParam();
 
 			var numOfImages = folders[index].count ? folders[index].count : 0; // initialize and check if undefined set to zero
 
-			if(jAlbumGlobals1649782348930.folderImgCount){
+			if(jAlbumGlobals1649783349357.folderImgCount){
 				textBox.append("<p>" + jAlbumLibrary.truncate(folders[index].name, maxLetters) + " (" + numOfImages + ")</p>");
 			} else {
 				textBox.append("<p>" + jAlbumLibrary.truncate(folders[index].name, maxLetters + 3) + "</p>");
@@ -586,7 +586,7 @@ var jAlbumController = (function () {
 		coverBox.append(mainBox);
 
 		// add image folder box to page content
-	    $jAlbum("#Responsive" + jAlbumGlobals1649782348930.uniqueId + " #jAlbum-content").append(coverBox);
+	    $jAlbum("#Responsive" + jAlbumGlobals1649783349357.uniqueId + " #jAlbum-content").append(coverBox);
 
 	    // clear up trigger event
 		$jAlbum(window).on('clearUpContent', function (event) {
@@ -599,7 +599,7 @@ var jAlbumController = (function () {
 	function arrangeFolders(mainBoxSize, imgSize){
 
 		// set folder name padding
-		if(jAlbumGlobals1649782348930.folderTitleUp){
+		if(jAlbumGlobals1649783349357.folderTitleUp){
 			$jAlbum(".text-box").css("padding-top", "3px");
 			$jAlbum(".text-box").css("padding-left", "5px");
 		} else {
@@ -607,7 +607,7 @@ var jAlbumController = (function () {
 			$jAlbum(".text-box").css("padding-left", "5px");
 		}
 
-		imgSize = jAlbumGlobals1649782348930.showFolderName ? imgSize * 0.5 : imgSize * 0.8;
+		imgSize = jAlbumGlobals1649783349357.showFolderName ? imgSize * 0.5 : imgSize * 0.8;
 
 		$jAlbum.each(folders, function(index, folder) {
 
@@ -619,7 +619,7 @@ var jAlbumController = (function () {
 
 				for(var i = 0; i < 3; i++){
 
-					var img = $jAlbum("#Responsive" + jAlbumGlobals1649782348930.uniqueId + " #img-folder-" + i + "-" + folder.index);
+					var img = $jAlbum("#Responsive" + jAlbumGlobals1649783349357.uniqueId + " #img-folder-" + i + "-" + folder.index);
 					var x = (i - 1) * - 10;
 					var y = (i - 1) * - 10;
 					var scaledWidth = 0;
@@ -640,7 +640,7 @@ var jAlbumController = (function () {
 					img.css("width", scaledWidth + "px");				
 					img.css("height", scaledHeight + "px");
 
-					img.css("margin", ((mainBoxSize - scaledHeight)/2 - jAlbumGlobals1649782348930.imgBorderSize) + "px " + ((mainBoxSize - scaledWidth)/2 - jAlbumGlobals1649782348930.imgBorderSize) + "px");
+					img.css("margin", ((mainBoxSize - scaledHeight)/2 - jAlbumGlobals1649783349357.imgBorderSize) + "px " + ((mainBoxSize - scaledWidth)/2 - jAlbumGlobals1649783349357.imgBorderSize) + "px");
 				}
 			}
 		}); 
@@ -652,14 +652,14 @@ var jAlbumController = (function () {
 		// get main div container
 	    var box = $jAlbum("<div>", {class: "main-box"});
 
-	    var img = jAlbumLibrary.img("img-thumb-" + index, jAlbumGlobals1649782348930.jAlbumURL + currentPath + object.thumb.path);
+	    var img = jAlbumLibrary.img("img-thumb-" + index, jAlbumGlobals1649783349357.jAlbumURL + currentPath + object.thumb.path);
 
 	    var video_icon_wrapper = $jAlbum("<div>", {class: "video_icon_wrapper"});
 
 	    if(object.category == 'video'){
 	    	var video_icon = $jAlbum("<img>", {class: "video_icon"});
 	    	video_icon.addClass("fadein-1");
-		    video_icon.attr("src", jAlbumGlobals1649782348930.jAlbumURL + "res/img/play.png");
+		    video_icon.attr("src", jAlbumGlobals1649783349357.jAlbumURL + "res/img/play.png");
 		    video_icon_wrapper.append(video_icon);
 	    }
 
@@ -682,14 +682,14 @@ var jAlbumController = (function () {
 		img.prop("title", jAlbumLibrary.truncate(comment, 100)); // give an image a hover hint with the comment of it
 
 		// hover treatment
-		if(!jAlbumGlobals1649782348930.mobile){
+		if(!jAlbumGlobals1649783349357.mobile){
 		    img.hover(function(){
 		    	img.css("zIndex", 10);
 				img.css({
-					'-webkit-transform': jAlbumGlobals1649782348930.imgHoverScaleFactor,
-					'-moz-transform': jAlbumGlobals1649782348930.imgHoverScaleFactor,
-					'-o-transform': jAlbumGlobals1649782348930.imgHoverScaleFactor,
-					'transform': jAlbumGlobals1649782348930.imgHoverScaleFactor
+					'-webkit-transform': jAlbumGlobals1649783349357.imgHoverScaleFactor,
+					'-moz-transform': jAlbumGlobals1649783349357.imgHoverScaleFactor,
+					'-o-transform': jAlbumGlobals1649783349357.imgHoverScaleFactor,
+					'transform': jAlbumGlobals1649783349357.imgHoverScaleFactor
 				});
 			}, function(){
 
@@ -717,7 +717,7 @@ var jAlbumController = (function () {
 	    box.append(img);
 	    if(object.category == 'video')box.append(video_icon_wrapper);
 
-	    $jAlbum("#Responsive" + jAlbumGlobals1649782348930.uniqueId + " #jAlbum-content").append(box);
+	    $jAlbum("#Responsive" + jAlbumGlobals1649783349357.uniqueId + " #jAlbum-content").append(box);
 
 	    // clear up trigger event
 		$jAlbum(window).on('clearUpContent', function (event) {
@@ -738,7 +738,7 @@ var jAlbumController = (function () {
 	    	var scaledWidth = 0;
 	    	var scaledHeight = 0;
 
-	    	var img = $jAlbum("#Responsive" + jAlbumGlobals1649782348930.uniqueId + " #img-thumb-" + thumb.index);
+	    	var img = $jAlbum("#Responsive" + jAlbumGlobals1649783349357.uniqueId + " #img-thumb-" + thumb.index);
 	    	var video_icon_wrapper = $jAlbum(".video_icon_wrapper");
 
 	    	// scales image to certain size
@@ -756,7 +756,7 @@ var jAlbumController = (function () {
 			video_icon_wrapper.css("height", imgBoxSize + "px");
 
 			// image margin (center image)
-			img.css("margin", ((imgBoxSize - scaledHeight)/2 - jAlbumGlobals1649782348930.imgBorderSize) + "px " + ((imgBoxSize - scaledWidth)/2 - jAlbumGlobals1649782348930.imgBorderSize) + "px");
+			img.css("margin", ((imgBoxSize - scaledHeight)/2 - jAlbumGlobals1649783349357.imgBorderSize) + "px " + ((imgBoxSize - scaledWidth)/2 - jAlbumGlobals1649783349357.imgBorderSize) + "px");
 
 		}); 
 	}
@@ -778,21 +778,21 @@ var jAlbumController = (function () {
 	    var fs_box = $jAlbum("<div/>");
 	    var cancel = $jAlbum("<div/>");
 	    var play = $jAlbum("<div/>");
-	    var thumbnail = slides[index].category == 'video' ? $jAlbum("<img src='" + jAlbumGlobals1649782348930.jAlbumURL + currentPath + slides[index].videothumb + "'>") : $jAlbum('<img>');
+	    var thumbnail = slides[index].category == 'video' ? $jAlbum("<img src='" + jAlbumGlobals1649783349357.jAlbumURL + currentPath + slides[index].videothumb + "'>") : $jAlbum('<img>');
 	    var description = $jAlbum("<div/>");
 
 	    // hide description if disabled
-	    if(!jAlbumGlobals1649782348930.showComments) description.hide();
+	    if(!jAlbumGlobals1649783349357.showComments) description.hide();
 
 	    thumbnail.css({"width": "100%", "height": "100%", "position": "absolute"});
 
-	    if(!jAlbumGlobals1649782348930.mobile) thumbnail.css("opacity", "0");
+	    if(!jAlbumGlobals1649783349357.mobile) thumbnail.css("opacity", "0");
 
 	    description.unbind();
 
 	    // handle navigation
 		var fs = $jAlbum("#fullscreen");
-		var em = $jAlbum("#Responsive" + jAlbumGlobals1649782348930.uniqueId)
+		var em = $jAlbum("#Responsive" + jAlbumGlobals1649783349357.uniqueId)
 
 		tempSlideIndex = index;
 
@@ -812,11 +812,11 @@ var jAlbumController = (function () {
 
 		switch (slides[index].category) {
 			case 'image':
-				img = jAlbumLibrary.img("img-fullscreen-" + index, jAlbumGlobals1649782348930.jAlbumURL + path);
+				img = jAlbumLibrary.img("img-fullscreen-" + index, jAlbumGlobals1649783349357.jAlbumURL + path);
 				play.hide();
 				break;
 			case 'video':
-				img = jAlbumLibrary.vid("img-fullscreen-" + index, jAlbumGlobals1649782348930.jAlbumURL + path);
+				img = jAlbumLibrary.vid("img-fullscreen-" + index, jAlbumGlobals1649783349357.jAlbumURL + path);
 				play.show();
 				break;
 		}
@@ -1002,8 +1002,8 @@ var jAlbumController = (function () {
 			var innerWidth = $jAlbum(window).width();
 			var innerHeight = $jAlbum(window).height();
 
-			var imageBoxWidth = innerWidth - jAlbumGlobals1649782348930.slideMarginSize * 2 * innerWidth / 100;
-			var imageBoxHeight = innerHeight - jAlbumGlobals1649782348930.slideMarginSize * 2 * innerHeight / 100;
+			var imageBoxWidth = innerWidth - jAlbumGlobals1649783349357.slideMarginSize * 2 * innerWidth / 100;
+			var imageBoxHeight = innerHeight - jAlbumGlobals1649783349357.slideMarginSize * 2 * innerHeight / 100;
 
 			var scaledWidth = 0;
 			var scaledHeight = 0;

@@ -15,7 +15,7 @@
 * the state of the skin like if it is embedded, viewed on a mobile device,
 * online or in filesystem etc.
 */
-var jAlbumGlobals1649782348930 = (function () {
+var jAlbumGlobals1649783349357 = (function () {
 
 	var styles = ["dark.css", "light.css", "transparent.css"]; // styles
 
@@ -131,7 +131,7 @@ var jAlbumInject = (function () {
 
 	appendToHead(injMeta("viewport", "width=device-width, initial-scale=1.0, maximum-scale=1.0")); // viewport handles mobile scaling size
 
-	inj('<div id="Responsive' + jAlbumGlobals1649782348930.uniqueId + '" class="jAlbum Responsive">'); // Responsive id surrounds all code of the body of the skin
+	inj('<div id="Responsive' + jAlbumGlobals1649783349357.uniqueId + '" class="jAlbum Responsive">'); // Responsive id surrounds all code of the body of the skin
 	inj('<div id="fullscreen"></div>'); // element where to add fullscreen
 	inj('<div id="jAlbum-header"></div>'); // header container
 	inj('<div id="jAlbum-content"></div>'); // content container
@@ -144,11 +144,11 @@ var jAlbumInject = (function () {
 	inj('<a href="http://jalbum.net/skins/skin/Responsive">Responsive</a></p>'); // skin advertisement in footer
 	inj('</div></div></div>'); // close footer
 
-	inj('<script src="' + jAlbumGlobals1649782348930.jAlbumURL + 'res/libs/jquery-2.1.4.min.js"></script>'); // embets jQuery library
+	inj('<script src="' + jAlbumGlobals1649783349357.jAlbumURL + 'res/libs/jquery-2.1.4.min.js"></script>'); // embets jQuery library
 	inj('<script type="text/javascript">$(document).bind("mobileinit", function(){$.extend($.mobile , {autoInitializePage: false})});</script>'); // deactivates jQuery unnecessary mobile feature
-	inj('<script src="' + jAlbumGlobals1649782348930.jAlbumURL + 'res/libs/jquery.mobile-1.4.5.min.js"></script>'); // includes jQuery Mobile
-	inj('<script src="' + jAlbumGlobals1649782348930.jAlbumURL + 'res/libs/jquery.touchswipe.min.js"></script>'); // jQuery touchswipe plugin
-	inj('<script src="' + jAlbumGlobals1649782348930.jAlbumURL + 'main.js" type="text/javascript"></script>'); // includes skin controller
+	inj('<script src="' + jAlbumGlobals1649783349357.jAlbumURL + 'res/libs/jquery.mobile-1.4.5.min.js"></script>'); // includes jQuery Mobile
+	inj('<script src="' + jAlbumGlobals1649783349357.jAlbumURL + 'res/libs/jquery.touchswipe.min.js"></script>'); // jQuery touchswipe plugin
+	inj('<script src="' + jAlbumGlobals1649783349357.jAlbumURL + 'main.js" type="text/javascript"></script>'); // includes skin controller
 	
 	/** injects html code at embedded position **/
 	function inj(html){
@@ -163,7 +163,7 @@ var jAlbumInject = (function () {
 	/** injects header of embedded page with stylesheet includes **/
 	function injLink(path, rel){
 		var elem = document.createElement("link");
-		elem.href = jAlbumGlobals1649782348930.jAlbumURL + path;
+		elem.href = jAlbumGlobals1649783349357.jAlbumURL + path;
 		elem.rel = rel;
 
 		return elem;
@@ -183,10 +183,10 @@ var jAlbumInject = (function () {
 /** --- Widget Support---
 * provides JavaScript code for jAlbum widget support
 */
-window._jaWidgetBarColor = jAlbumGlobals1649782348930.widgetColor;
+window._jaWidgetBarColor = jAlbumGlobals1649783349357.widgetColor;
 
 if(!document.getElementById('non-embedded')){ // check if embedded
-	window._jaUrl = jAlbumGlobals1649782348930.jAlbumURL;
+	window._jaUrl = jAlbumGlobals1649783349357.jAlbumURL;
 	_jaSkin = "Responsive";
 _jaStyle = "dark.css";
 _jaVersion = "27.0.7";
